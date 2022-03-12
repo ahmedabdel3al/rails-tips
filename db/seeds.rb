@@ -7,4 +7,5 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-User.create({ email: 'admin@gmail.com' , password: "password" , full_name: 'ahmed abdelaal'  })
+user = User.create({ email: 'admin@gmail.com' , password: "password" , full_name: 'ahmed abdelaal'  })
+user.user_logins.create([{ ip_address: '156.220.252.169' , login_at: Time.now  } , { ip_address: '156.220.252.162' , login_at: 1.month.ago  } ,])
