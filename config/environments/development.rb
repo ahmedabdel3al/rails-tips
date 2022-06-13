@@ -53,6 +53,20 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => 'dc53127b5f51c6',
+    :password => '5a1277c6c72690',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '465',
+    :authentication => :cram_md5
+  }
+
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
