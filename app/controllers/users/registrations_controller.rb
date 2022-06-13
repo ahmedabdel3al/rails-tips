@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    fail
     super
   end
 
@@ -46,6 +45,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
   # end
 
+  protected def sign_up_params
+    params.require(:user).permit(:password , :password_confirmation, :full_name ,:email)
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
@@ -56,9 +59,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  def sign_up_params
-    super.merge(:full_name)
-  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
