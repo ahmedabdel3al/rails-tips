@@ -2,7 +2,7 @@ module User::Scopes
   extend ActiveSupport::Concern
 
   included do
-    scope :admin , ->(){  where({email: 'admin@gmail.com'}) }
+    scope :regular , ->(){ where(user_type: :regular)}
   end
 end
 
